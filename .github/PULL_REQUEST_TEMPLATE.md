@@ -6,13 +6,17 @@
 <!-- 과제 구현 여부를 작성하고, 구현한 과제에 해결 여부에 체크해주세요! -->
 <!-- 시뮬레이터 gif을 넣어주세요.-->
 ✅ 실습 내용 
-- [ ]
-- [ ]
+- [UIComponent 속성 추가하기]
+- [다른 컴포넌트 추가]
+- [Font Asset 추가]
+- [lmage Asset 추가]
 
 
 |    구현 내용    |   IPhone 17 pro   |   IPhone 13 mini   |
 | :-------------: | :----------: | :----------: |
-| GIF | <img src = "" width ="250"> | <img src = "" width ="250"> |
+| GIF | <img src = "![Simulator Screen Recording - iPhone 13 mini - 2026-04-10 at 18 00 05](https://github.com/user-attachments/assets/8e46e7d5-2915-467e-aa96-f914b86ce315)
+" width ="250"> | <img src = "![Simulator Screen Recording - iPhone 17 Pro - 2026-04-10 at 18 03 27](https://github.com/user-attachments/assets/7918decc-46b1-4d2c-800c-674c6cdf5a6a)
+" width ="250"> |
 
 
 ## 💻 주요 코드 설명
