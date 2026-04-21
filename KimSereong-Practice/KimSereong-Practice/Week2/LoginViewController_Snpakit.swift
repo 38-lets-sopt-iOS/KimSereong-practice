@@ -102,6 +102,7 @@ class LoginviewController_Snapkit: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(57)
         }
+    }
                 
     
     @objc private func loginButtonDidTapped() {
