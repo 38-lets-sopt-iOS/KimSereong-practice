@@ -15,8 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let loginViewController = ScrollViewPractice2()
-        let navigationController = UINavigationController(rootViewController: loginViewController)
+        let signupViewController = SignupViewController()
+        let navigationController = UINavigationController(rootViewController: signupViewController)
                 
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = navigationController
