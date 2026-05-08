@@ -43,7 +43,7 @@ final class SignupService {
         let baseUrl = baseURL
         print(baseUrl)
         let path = "api/v1/auth/signup"
-        let url = baseUrl + path
+        let url = baseURL + path
         print(url)
         
         guard let encoderurl = URL(string: url) else {

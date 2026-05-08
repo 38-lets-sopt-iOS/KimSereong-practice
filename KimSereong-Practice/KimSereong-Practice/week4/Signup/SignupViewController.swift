@@ -6,13 +6,6 @@
 //
 
 
-//
-//  SignupViewController.swift
-//  Sopt38-Seminar
-//
-//  Created by 이나연 on 5/2/26.
-//
-
 import UIKit
 
 import Then
@@ -39,7 +32,6 @@ final class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setAddTarget()
         
         setUI()
         setStyle()
@@ -48,114 +40,114 @@ final class SignupViewController: UIViewController {
     }
     
     private func setUI() {
-            view.addSubviews(
-                idTextField, passwordTextField, nameTextField, emailTextField, ageTextField, partTextField,
-                signupButton, loginButton, getUsersButton
-            )
-        }
+        view.addSubviews(
+            idTextField, passwordTextField, nameTextField, emailTextField, ageTextField, partTextField,
+            signupButton, loginButton, getUsersButton
+        )
+    }
+    
+    private func setStyle() {
+        view.backgroundColor = .white
         
-        private func setStyle() {
-            view.backgroundColor = .white
-            
-            let placeholder = ["아이디", "비밀번호", "이름", "이메일", "나이", "iOS, 안드로이드, 웹 중 하나를 입력해주세요."]
-            
-            [idTextField, passwordTextField, nameTextField, emailTextField, ageTextField, partTextField]
-                .enumerated()
-                .forEach { index, textField in
-                    textField.do {
-                        $0.addLeftPadding()
-                        $0.placeholder = placeholder[index]
-                        $0.borderStyle = .roundedRect
-                        $0.autocapitalizationType = .none
-                        $0.autocorrectionType = .no
-                        $0.spellCheckingType = .no
-                    }
+        let placeholder = ["아이디", "비밀번호", "이름", "이메일", "나이", "iOS, 안드로이드, 웹 중 하나를 입력해주세요."]
+        
+        [idTextField, passwordTextField, nameTextField, emailTextField, ageTextField, partTextField]
+            .enumerated()
+            .forEach { index, textField in
+                textField.do {
+                    $0.addLeftPadding()
+                    $0.placeholder = placeholder[index]
+                    $0.borderStyle = .roundedRect
+                    $0.autocapitalizationType = .none
+                    $0.autocorrectionType = .no
+                    $0.spellCheckingType = .no
                 }
-            
-            signupButton.do {
-                $0.setTitle("회원가입", for: .normal)
-                $0.backgroundColor = .systemBlue
-                $0.layer.cornerRadius = 10
             }
-            
-            loginButton.do {
-                $0.setTitle("로그인하기", for: .normal)
-                $0.backgroundColor = .systemBlue
-                $0.layer.cornerRadius = 10
-            }
-            
-            getUsersButton.do {
-                $0.setTitle("유저 리스트 조회", for: .normal)
-                $0.backgroundColor = .systemBlue
-                $0.layer.cornerRadius = 10
-            }
+        
+        signupButton.do {
+            $0.setTitle("회원가입", for: .normal)
+            $0.backgroundColor = .systemBlue
+            $0.layer.cornerRadius = 10
         }
         
-        private func setLayout() {
-            idTextField.snp.makeConstraints {
-                $0.top.equalToSuperview().inset(70)
-                $0.horizontalEdges.equalToSuperview().inset(20)
-                $0.height.equalTo(50)
-            }
-            
-            passwordTextField.snp.makeConstraints {
-                $0.top.equalTo(idTextField.snp.bottom).offset(10)
-                $0.horizontalEdges.equalToSuperview().inset(20)
-                $0.height.equalTo(50)
-            }
-            
-            nameTextField.snp.makeConstraints {
-                $0.top.equalTo(passwordTextField.snp.bottom).offset(10)
-                $0.horizontalEdges.equalToSuperview().inset(20)
-                $0.height.equalTo(50)
-            }
-            
-            emailTextField.snp.makeConstraints {
-                $0.top.equalTo(nameTextField.snp.bottom).offset(10)
-                $0.horizontalEdges.equalToSuperview().inset(20)
-                $0.height.equalTo(50)
-            }
-            
-            ageTextField.snp.makeConstraints {
-                $0.top.equalTo(emailTextField.snp.bottom).offset(10)
-                $0.horizontalEdges.equalToSuperview().inset(20)
-                $0.height.equalTo(50)
-            }
-            
-            partTextField.snp.makeConstraints {
-                $0.top.equalTo(ageTextField.snp.bottom).offset(10)
-                $0.horizontalEdges.equalToSuperview().inset(20)
-                $0.height.equalTo(50)
-            }
-            
-            signupButton.snp.makeConstraints {
-                $0.top.equalTo(partTextField.snp.bottom).offset(20)
-                $0.horizontalEdges.equalToSuperview().inset(20)
-                $0.height.equalTo(50)
-            }
-            
-            loginButton.snp.makeConstraints {
-                $0.top.equalTo(signupButton.snp.bottom).offset(10)
-                $0.horizontalEdges.equalToSuperview().inset(20)
-                $0.height.equalTo(50)
-            }
-            
-            getUsersButton.snp.makeConstraints {
-                $0.top.equalTo(loginButton.snp.bottom).offset(10)
-                $0.horizontalEdges.equalToSuperview().inset(20)
-                $0.height.equalTo(50)
-            }
+        loginButton.do {
+            $0.setTitle("로그인하기", for: .normal)
+            $0.backgroundColor = .systemBlue
+            $0.layer.cornerRadius = 10
         }
         
-        private func setAddTarget() {
-            [idTextField,passwordTextField, nameTextField, emailTextField, ageTextField, partTextField].forEach {
-                $0.addTarget(self, action: #selector(textFieldDidEditingChanged(_:)), for: .editingChanged)
-            }
-            signupButton.addTarget(self, action: #selector(signupButtonDidTap), for: .touchUpInside)
-            loginButton.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
-            getUsersButton.addTarget(self, action: #selector(getUsersButtonDidTap), for: .touchUpInside)
+        getUsersButton.do {
+            $0.setTitle("유저 리스트 조회", for: .normal)
+            $0.backgroundColor = .systemBlue
+            $0.layer.cornerRadius = 10
         }
     }
+    
+    private func setLayout() {
+        idTextField.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(70)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(50)
+        }
+        
+        passwordTextField.snp.makeConstraints {
+            $0.top.equalTo(idTextField.snp.bottom).offset(10)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(50)
+        }
+        
+        nameTextField.snp.makeConstraints {
+            $0.top.equalTo(passwordTextField.snp.bottom).offset(10)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(50)
+        }
+        
+        emailTextField.snp.makeConstraints {
+            $0.top.equalTo(nameTextField.snp.bottom).offset(10)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(50)
+        }
+        
+        ageTextField.snp.makeConstraints {
+            $0.top.equalTo(emailTextField.snp.bottom).offset(10)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(50)
+        }
+        
+        partTextField.snp.makeConstraints {
+            $0.top.equalTo(ageTextField.snp.bottom).offset(10)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(50)
+        }
+        
+        signupButton.snp.makeConstraints {
+            $0.top.equalTo(partTextField.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(50)
+        }
+        
+        loginButton.snp.makeConstraints {
+            $0.top.equalTo(signupButton.snp.bottom).offset(10)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(50)
+        }
+        
+        getUsersButton.snp.makeConstraints {
+            $0.top.equalTo(loginButton.snp.bottom).offset(10)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(50)
+        }
+    }
+    
+    private func setAddTarget() {
+        [idTextField, passwordTextField, nameTextField, emailTextField, ageTextField, partTextField].forEach {
+            $0.addTarget(self, action: #selector(textFieldDidEditingChanged(_:)), for: .editingChanged)
+        }
+        signupButton.addTarget(self, action: #selector(signupButtonDidTap), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
+        getUsersButton.addTarget(self, action: #selector(getUsersButtonDidTap), for: .touchUpInside)
+    }
+}
 
 
 extension SignupViewController {
@@ -191,7 +183,12 @@ extension SignupViewController {
                     age: age,
                     part: part
                 )
-                self.navigationController?.pushViewController(LoginAPIViewController(), animated: true)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.navigationController?.pushViewController(SigninAPIViewController(), animated: true)
+                }
+                
+                self.navigationController?.pushViewController(SigninAPIViewController(), animated: true)
                 print("회원가입 성공")
             } catch {
                 let alert = UIAlertController(title: "회원가입 실패", message: nil, preferredStyle: .alert)
@@ -207,7 +204,7 @@ extension SignupViewController {
     
     @objc
     private func loginButtonDidTap() {
-        navigationController?.pushViewController(LoginAPIViewController(), animated: true)
+        navigationController?.pushViewController(SigninAPIViewController(), animated: true)
     }
     
     @objc
