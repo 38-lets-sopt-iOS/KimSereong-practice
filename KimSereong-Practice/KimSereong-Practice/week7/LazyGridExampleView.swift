@@ -9,30 +9,37 @@ import SwiftUI
 
 struct LazyVGridExampleView: View {
     let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.flexible(), spacing: 14),
+        GridItem(.flexible(), spacing: 14)
     ]
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, spacing: 16) {
+        ScrollView(.vertical, showsIndicators: true) {
+            LazyVGrid(columns: columns, spacing: 24) {
                 ForEach(1...20, id: \.self) { index in
-                    VStack {
-                        Rectangle()
-                            .fill(Color.cyan)
-                            .frame(height: 100)
-                            .cornerRadius(10)
+                    VStack(spacing: 12) {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color(red: 0.05, green: 0.78, blue: 0.84))
+                            .aspectRatio(1.8, contentMode: .fit)
                         
                         Text("아이템 \(index)")
-                            .font(.headline)
+                            .font(.system(size: 17, weight: .bold))
+                            .foregroundStyle(.black)
                     }
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(12)
+                    .padding(.top, 18)
+                    .padding(.horizontal, 18)
+                    .padding(.bottom, 16)
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color(red: 0.0, green: 0.48, blue: 1.0))
+                    )
                 }
             }
-            .padding()
+            .padding(.horizontal, 24)
+            .padding(.vertical, 24)
         }
+        .background(Color.white)
     }
 }
 
