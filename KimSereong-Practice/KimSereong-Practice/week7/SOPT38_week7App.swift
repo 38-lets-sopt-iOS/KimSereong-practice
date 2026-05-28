@@ -11,7 +11,7 @@ import SwiftUI
 struct SOPT38_week7App: App {
     var body: some Scene {
         WindowGroup {
-            LazyVGridExampleView()
+            NavigationPractice()
         }
     }
 }

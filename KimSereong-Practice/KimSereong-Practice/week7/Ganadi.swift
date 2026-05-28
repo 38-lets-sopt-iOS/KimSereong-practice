@@ -54,17 +54,42 @@ struct NavigationPractice: View {
     
     var body: some View {
         NavigationStack {
-            List(Ganadi.friends) { friends in
-                NavigationLink(friends.name, value: friends)
+            List {
+                Section {
+                    ForEach(Ganadi.friends) { friend in
+                        NavigationLink(friend.name, value: friend)
+                    }
+                }
             }
-            Button("이동하기 State 버전"){
-                isPresented = true
+            .listStyle(.insetGrouped)
+            .scrollContentBackground(.hidden)
+            .background(Color(uiColor: .systemGroupedBackground))
+            .navigationDestination(for: Ganadi.self) { friend in
+                DetailView(friends: friend)
             }
-            .navigationDestination(for: Ganadi.self){ friends in
-                DetailView(friends: friends)
+            .navigationDestination(isPresented: $isPresented) {
+                GanadiImageView()
             }
-            
             .navigationTitle("듀...")
+            .navigationBarTitleDisplayMode(.large)
+            .safeAreaInset(edge: .bottom) {
+                VStack(spacing: 2) {
+                    NavigationLink {
+                        GanadiImageView()
+                    } label: {
+                        Text("이동하기 간단버전")
+                    }
+                    
+                    Button("이동하기 state 버전") {
+                        isPresented = true
+                    }
+                }
+                .font(.system(size: 14, weight: .medium))
+                .frame(maxWidth: .infinity)
+                .padding(.top, 8)
+                .padding(.bottom, 10)
+                .background(Color.white)
+            }
         }
     }
 }
@@ -74,14 +99,19 @@ struct DetailView: View {
     
     var body: some View {
         Text(friends.detail)
+            .font(.system(size: 18, weight: .semibold))
+            .padding()
             .navigationTitle(friends.name)
     }
 }
 
-//struct GanadiImageView: View {
-//  var body: some View {
-//      Image(.ganadi)
-//          .resizable()
-//          .scaledToFit()
-//  }
-//}
+struct GanadiImageView: View {
+    var body: some View {
+        Image("가나디")
+            .resizable()
+            .scaledToFit()
+            .padding(24)
+            .navigationTitle("가나디")
+            .navigationBarTitleDisplayMode(.inline)
+    }
+}
